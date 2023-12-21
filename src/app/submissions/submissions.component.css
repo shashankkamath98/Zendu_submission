@@ -1,0 +1,17 @@
+h3{
+    padding-top: 30px;
+}
+.container{
+    display: flex; 
+    margin-right: 100px;
+}
+
+button{
+    background:none;
+border:none;
+margin:0;
+padding:0;
+color: blue;
+font: bold;
+font-weight: 100;
+}

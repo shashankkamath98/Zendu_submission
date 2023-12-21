@@ -1,0 +1,65 @@
+<div class="container">
+    <div class="col-md-12 py-2">
+        <form role="form">
+            <h3>Submissions</h3>
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="search" placeholder="Search..." class="form-control" id="filter-text-box"
+                        [(ngModel)]="searchText" (ngModelChange)="onFilterBoxChanged()" name="search" />
+                    
+                </div>
+
+                <div class="col-md-2">
+                    <select class="form-control" [(ngModel)]="searchText" (ngModelChange)="onFilterBoxChanged()"
+                        name="select_search" required>
+                        <option value="" disable selected hidden>Select Email </option>
+                        <option *ngFor="let from of rowData" value="{{from.From}}">{{from.From}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <select class="form-control" [(ngModel)]="searchText" (ngModelChange)="onFilterBoxChanged()"
+                        name="select_status">
+                        <option value="" disable selected hidden>Select Status </option>
+                        <option *ngFor="let status of rowData" value="{{status.Status}}">{{status.Status}}</option>
+                    </select>
+                </div>
+
+                <div class="col-md-2">
+                    <input type="date" placeholder="Select Date" class="form-control" [(ngModel)]="searchText"
+                        (ngModelChange)="onFilterBoxChanged()" name="select_date" (click)="parseDate($event)" />
+
+                </div>
+
+                <div class="col-md-1">
+
+                    <nz-switch [ngModel]="false" nzCheckedChildren="List" nzUnCheckedChildren="Map" name="toggle"
+                        (click)="maplist()">Toggle {{ state ? 'On' : 'Off' }}</nz-switch>
+
+                </div>
+
+                <div class="col-md-2">
+                    <fa-icon [icon]="faFileExport"></fa-icon>
+                    <button class="btn btn-primary" type="export" (click)="exportexcel()">Export</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+</div>
+
+<br>
+<br>
+
+<div class="container">
+    <ag-grid-angular style="width: 100%; height: calc(100vh - 135px);" class="ag-theme-balham" [rowData]="rowData"
+        [columnDefs]="columnDefs" (gridReady)="onGridReady1($event)" [pagination]="true">
+    </ag-grid-angular>
+
+    <highcharts-chart id="container" [Highcharts]="Highcharts" [constructorType]="chartConstructor"
+        [options]="chartOptions" style="display: block; width: 100%; height: auto">
+    </highcharts-chart>
+
+
+</div>

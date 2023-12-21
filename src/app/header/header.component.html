@@ -1,0 +1,49 @@
+<div class="header">
+    <div class="logo">ZenduForms</div>
+    <div class="nav-items">
+        <div class="nav-item" routerLink="/forms" routerLinkActive="active">
+            <fa-icon [icon]="faList"></fa-icon>
+            Forms
+
+        </div>
+        <div class="nav-item" routerLink="/customers">
+            <fa-icon [icon]="faUsers"></fa-icon>
+            Customers
+
+        </div>
+
+        <div class="nav-item" routerLink="/submissions">
+            <fa-icon [icon]="faBars"></fa-icon>
+            Submissions
+
+        </div>
+
+        <div class="nav-item" routerLink="/history">
+            <fa-icon [icon]="faClockRotateLeft"></fa-icon>
+            History
+        </div>
+
+        <div class="nav-item" routerLink="/reports">
+            <fa-icon [icon]="faSquarePollVertical"></fa-icon>
+            Reports
+
+        </div>
+
+        <div class="nav-item" routerLink="/workflow">
+            <fa-icon [icon]="faSquarePollVertical"></fa-icon>
+            Workflow
+        </div>
+    </div>
+    <div class="user">
+        <div class="user-name-logout">
+            <fa-icon [icon]="faBell"></fa-icon>
+        </div>
+        <div class="user-name-logout">
+            <fa-icon [icon]="faRightFromBracket"></fa-icon>
+        </div>
+
+    </div>
+</div>
+
+
+<router-outlet></router-outlet>
